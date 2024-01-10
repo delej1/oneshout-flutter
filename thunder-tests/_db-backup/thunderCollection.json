@@ -1,0 +1,23 @@
+[
+  {
+    "_id": "888fd7d1-0b64-4766-b121-5996bc5b6b3f",
+    "colName": "Shout",
+    "created": "2023-03-24T09:49:24.220Z",
+    "sortNum": 10000,
+    "folders": []
+  },
+  {
+    "_id": "8ff3611c-3653-4a6e-889a-0af61813fb6c",
+    "colName": "Subscriptions",
+    "created": "2023-03-25T18:59:55.584Z",
+    "sortNum": 20000,
+    "folders": []
+  },
+  {
+    "_id": "4ad5fb2c-7837-4c99-9d80-c0e5dd716bd7",
+    "colName": "Auth",
+    "created": "2023-04-27T04:57:55.028Z",
+    "sortNum": 30000,
+    "folders": []
+  }
+]

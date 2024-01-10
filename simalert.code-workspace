@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "../../StrapiApps/simalert-api"
+    },
+    {
+      "path": "../../simalert-api"
+    }
+  ],
+  "settings": {
+    "dart.flutterSdkPath": "/Users/Tochie/Documents/Lab/SDKs/flutter-3.7.7",
+    "cSpell.words": ["audioplayers", "simalert"]
+  }
+}

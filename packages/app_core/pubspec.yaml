@@ -1,0 +1,64 @@
+name: app_core
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  adaptive_theme: ^3.0.0
+  app_form_fields:
+    path: ../app_form_fields
+  app_settings:
+    # git:
+    #   url: https://github.com/tochiedev/flutter_settings_screens
+    #   ref: master
+    path: ../app_settings
+  awesome_bottom_bar: ^1.2.4
+  bot_toast: ^4.0.1
+  cached_network_image: ^3.3.0
+  connectivity_plus: ^3.0.2
+  deep_pick: ^0.10.0
+  dio: ^4.0.6
+  enum_to_string: ^2.0.1
+  equatable: ^2.0.3
+  firebase_analytics: ^10.0.4
+  firebase_core: ^2.1.1
+  firebase_crashlytics: ^3.4.8
+  firebase_in_app_messaging: ^0.7.0+4
+  firebase_messaging: ^14.0.4
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.0.1
+  flutter_local_notifications: ^16.3.0
+#  flutter_native_timezone: ^2.0.0
+  flutter_native_timezone_updated_gradle: ^2.0.3
+  flutter_secure_storage: ^6.0.0
+  get_it: ^7.2.0
+  get_storage: ^2.0.3
+  google_fonts: ^5.0.0
+  group_button: ^5.0.1
+  injectable: ^1.5.3
+  internet_connection_checker: ^1.0.0+1
+  json_object_lite: ^3.0.0
+  logger: ^1.1.0
+  # modal_bottom_sheet: ^2.0.1
+  modal_bottom_sheet: ^3.0.0-pre
+  path_provider: ^2.0.9
+  rxdart: ^0.27.3
+  universal_platform: ^1.0.0+1
+  yaml: ^3.1.0
+
+dev_dependencies:
+  build_runner:
+  injectable_generator:
+  mocktail: ^0.3.0
+  very_good_analysis: ^3.0.0
+
+dependency_overrides:
+  http: ^0.13.0
+flutter:
+  assets:
+    - assets/
+    - assets/images/
+    - assets/flags/

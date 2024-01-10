@@ -1,0 +1,55 @@
+## sample translation, entry file.
+---
+app_title: One Shout
+your_contact_list: Emergency Contacts
+select_contacts: Select Contacts
+add_contact:
+  plural:count:
+    =0: Add Contact
+    =1: Add 1 Contact
+    other: Add {{count}} Contacts
+you_have_contact:
+  plural:count:
+    =1: You have 1 Contact
+    other: You have {{count}} Contacts
+add_a_contact: Add Contact
+save_contact: Save Contact
+edit_contact: Edit Contact
+import_contact: Import Contacts
+no_contacts_yet: You don't have any contacts yet.
+contacts: Contacts
+location: Location
+get_location: Get Location
+needs_help: requested help
+location_request: Location Request
+view_location_request_msg: wants to view your location
+accept: Accept
+reject: Reject
+alerts: Alerts
+help: Help
+im_safe: I'm Safe
+im_safe_msg: Tapping "@:im_safe" will send a message to your emergency contact telling them you are out of danger.
+your_name: Your Name
+or: or
+cancel: Cancel
+save: Save
+locator: Locator
+add_name_msg: "You need to add a name which will be sent with your emergency messages. \n\nUse your real name that people know you with."
+add_name: Add Name
+contacts_permission: Contacts Permission
+contacts_permission_msg: "This app requires your permission to read your contact list. This will enable you to add people from your contact list to your emergency contact. \n\nYour emergency contact list is stored locally on your device storage but may be uploaded if you wish to backup your data on our server. \n\nThis data is only accessible to you and you are free to modify or delete it whenever you wish."
+sms_permission: SMS Permission
+sms_permission_msg: "This app requires your permission to send and view sms messages. This will enable the app send sms to your specified contact list during an emergency, and also prompt you whenever someone needs your help."
+location_permission: Location Permission
+location_permission_msg: "One Shout collects location data so that it will be included in the emergency messages you send even when the app is closed or not in use. \n\nThis data is only accessible to the contacts you specify in your emergency list."
+grant_permission: Grant Permission
+later: Later
+view_grant_permission: View & Grant Permissions
+view_grant_permission_msg: "This app requires some access permissions to function properly."
+goto_contacts: Go to Contacts
+## you can reference other files and folders with [$ref: path].
+## content of the file will be unwrapped into the key.
+settings:
+  $ref: settings.yaml
+auth:
+  $ref: auth.yaml

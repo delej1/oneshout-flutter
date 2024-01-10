@@ -1,0 +1,26 @@
+## Settings section.
+---
+settings: Settings
+general: General
+shout: Shout
+tracking: Live Location Tracking
+feedback: Feedback
+dark_mode: Dark Mode
+logout: Logout
+delete_account: Delete Account
+report_a_bug: Report a Bug
+send_feedback: Send Feedback
+account_settings: Account Settings
+privacy: Privacy Policy
+security: Security
+language: Language
+choose_language: Choose your preferred language.
+location: Location
+account_info: Account Information
+notifications: Notifications
+local_news: Local News
+account_activity: Account Activity
+newsletter: Newsletter
+app_updates: App Updates
+privacy_security_language: "Privacy, Security, Language"
+newsletter_updates: "Newsletter, Updates"

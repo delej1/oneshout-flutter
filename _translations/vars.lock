@@ -1,0 +1,6 @@
+add_contact.plural:count.other:
+  0: count
+you_have_contact.plural:count.other:
+  0: count
+auth.verification_msg:
+  0: number

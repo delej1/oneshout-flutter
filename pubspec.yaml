@@ -1,0 +1,107 @@
+name: oneshout
+description: One Shout
+version: 1.0.3+23
+publish_to: none
+
+environment:
+  sdk: ">=2.18.0 <3.0.0"
+  flutter: 3.3.7
+
+dependencies:
+  adaptive_theme: ^3.1.1
+  app_auth:
+    path: ./packages/app_auth/
+  app_core:
+    path: ./packages/app_core/
+  app_form_fields:
+    path: ./packages/app_form_fields/
+  audioplayers: ^4.1.0
+  # background_sms: ^0.0.4
+  bloc: ^8.1.0
+  contacts_service: ^0.6.3
+  contextmenu: ^3.0.0
+  dartz: ^0.10.1
+  easy_localization: ^3.0.1
+  easy_localization_loader: ^1.0.1+1
+  enum_to_string: ^2.0.1
+  equatable: ^2.0.5
+  firebase_analytics: ^10.0.4
+  firebase_core: ^2.7.1
+  firebase_crashlytics: ^3.0.4
+  firebase_in_app_messaging: ^0.7.0+4
+  firebase_messaging: ^14.2.6
+  flutter:
+    sdk: flutter
+  flutter_background_service: ^3.0.1
+  flutter_bloc: ^8.1.1
+  flutter_contacts: ^1.1.5+1
+  flutter_libphonenumber: ^2.1.5
+  flutter_local_notifications: ^16.3.0
+  flutter_localizations:
+    sdk: flutter
+  flutter_otp_text_field: ^1.1.1
+  flutter_polyline_points: ^1.0.0
+  # flutter_sms: ^2.3.3
+  geolocator: ^9.0.2
+  get_storage: ^2.0.3
+  go_router: ^8.0.5
+  # go_router_flow: ^1.0.0+1
+  google_maps_flutter: ^2.5.1
+  hydrated_bloc: ^9.1.1
+  in_app_purchase: ^3.1.5
+  in_app_purchase_storekit: ^0.3.6+2
+  injectable: ^1.5.3
+  intl: ^0.18.0
+  # location: ^4.4.0
+  logger: ^1.1.0
+  map_launcher: ^2.4.0
+  # onesignal_flutter: ^3.5.0
+  package_info_plus: ^4.0.2
+  permission_handler: ^10.2.0
+  phone_numbers_parser: ^7.0.2
+  # readsms: ^0.0.2+2
+  purchases_flutter: ^6.6.0
+  shared_preferences: ^2.0.20
+  socket_io_client: ^2.0.1
+  telephony:
+    git:
+      url: https://github.com/suhardik/s_telephony.git
+  url_launcher: ^6.2.2
+  vibration: ^1.7.6
+  webview_flutter: ^4.0.1
+
+dev_dependencies:
+  bloc_test: ^9.1.0
+  build_runner:
+  change_app_package_name: ^1.1.0
+  flutter_gen_runner:
+  flutter_launcher_icons: ^0.13.1
+  flutter_test:
+    sdk: flutter
+  injectable_generator:
+  mocktail: ^0.3.0
+  # very_good_analysis: ^5.0.0+1
+
+dependency_overrides:
+  connectivity_plus: ^5.0.2
+  http: ^0.13.0
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/icon.png"
+  adaptive_icon_foreground: "assets/images/icon.png"
+  adaptive_icon_background: "#ffffff"
+  # min_sdk_android: 21 # android min sdk min:16, default 21
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/
+    - assets/i18n/
+    - assets/images/
+    - assets/animations/
+    - assets/google_fonts/
+    - assets/sounds/

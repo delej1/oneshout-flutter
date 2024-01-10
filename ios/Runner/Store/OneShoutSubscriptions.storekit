@@ -1,0 +1,104 @@
+{
+  "identifier" : "5F9DD6C4",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_applicationInternalID" : "1665137594",
+    "_developerTeamID" : "82AL8XU78L",
+    "_lastSynchronizedDate" : 701947715.29992902
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21289303",
+      "localizations" : [
+
+      ],
+      "name" : "One Shout Subscriptions",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 3,
+          "internalID" : "6447057316",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Enjoy full access to One Shout for 1 month.",
+              "displayName" : "1 Month Plan",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "sub_1_month",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "1 Month Plan",
+          "subscriptionGroupID" : "21289303",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "9.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6447056700",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Enjoy full access to One Shout for 1 year.",
+              "displayName" : "1 Year Plan",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "sub_12_months",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "1 Year Plan",
+          "subscriptionGroupID" : "21289303",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "5.99",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "6447057108",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Enjoy full access to One Shout for 6 months.",
+              "displayName" : "6 Months Plan",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "sub_6_months",
+          "recurringSubscriptionPeriod" : "P6M",
+          "referenceName" : "6 Months Plan",
+          "subscriptionGroupID" : "21289303",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

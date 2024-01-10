@@ -1,0 +1,65 @@
+{
+  "identifier" : "1435F7FD",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "6446796290",
+      "localizations" : [
+        {
+          "description" : "Enjoy full access to One Shout for one month",
+          "displayName" : "Monthly Plan",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "base_plan_30",
+      "referenceName" : "1 Month Plan",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "9.99",
+      "familyShareable" : false,
+      "internalID" : "6446796335",
+      "localizations" : [
+        {
+          "description" : "Enjoy full access to One Shout for one year",
+          "displayName" : "Yearly Plan",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "base_plan_365",
+      "referenceName" : "1 Year Plan",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "6446796342",
+      "localizations" : [
+        {
+          "description" : "Enjoy full access to One Shout for six months",
+          "displayName" : "6 Months Plan",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "base_plan_180",
+      "referenceName" : "6 Months Plan",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "1665137594",
+    "_developerTeamID" : "82AL8XU78L",
+    "_lastSynchronizedDate" : 701433249.55203998
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

@@ -1,0 +1,298 @@
+{
+  "project_info": {
+    "project_number": "85047900870",
+    "project_id": "ebs-oneshout",
+    "storage_bucket": "ebs-oneshout.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85047900870:android:0864d2b510660f1321f5c7",
+        "android_client_info": {
+          "package_name": "com.ebs.oneshout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85047900870-nstu4074jqiom8ke6q9dljfbqqu0prqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHPGfEfp__BalPc1KndiHk5vrsX6WPYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85047900870-nstu4074jqiom8ke6q9dljfbqqu0prqb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "85047900870-2t429m8ddarus8mv5e4ec80b45394lbi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.redinafrica.oneshout.OneSignalNotificationServiceExtension"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85047900870:android:64d31dbf8a5d839321f5c7",
+        "android_client_info": {
+          "package_name": "com.ebs.oneshout.biz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85047900870-nstu4074jqiom8ke6q9dljfbqqu0prqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHPGfEfp__BalPc1KndiHk5vrsX6WPYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85047900870-nstu4074jqiom8ke6q9dljfbqqu0prqb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "85047900870-2t429m8ddarus8mv5e4ec80b45394lbi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.redinafrica.oneshout.OneSignalNotificationServiceExtension"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85047900870:android:ea6d6f90c61da08721f5c7",
+        "android_client_info": {
+          "package_name": "com.ebs.oneshout.biz.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85047900870-nstu4074jqiom8ke6q9dljfbqqu0prqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHPGfEfp__BalPc1KndiHk5vrsX6WPYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85047900870-nstu4074jqiom8ke6q9dljfbqqu0prqb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "85047900870-2t429m8ddarus8mv5e4ec80b45394lbi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.redinafrica.oneshout.OneSignalNotificationServiceExtension"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85047900870:android:08f4b99e74337a6121f5c7",
+        "android_client_info": {
+          "package_name": "com.ebs.oneshout.biz.stg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85047900870-nstu4074jqiom8ke6q9dljfbqqu0prqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHPGfEfp__BalPc1KndiHk5vrsX6WPYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85047900870-nstu4074jqiom8ke6q9dljfbqqu0prqb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "85047900870-2t429m8ddarus8mv5e4ec80b45394lbi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.redinafrica.oneshout.OneSignalNotificationServiceExtension"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85047900870:android:121cd18851512e5b21f5c7",
+        "android_client_info": {
+          "package_name": "com.ebs.oneshout.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85047900870-nstu4074jqiom8ke6q9dljfbqqu0prqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHPGfEfp__BalPc1KndiHk5vrsX6WPYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85047900870-nstu4074jqiom8ke6q9dljfbqqu0prqb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "85047900870-2t429m8ddarus8mv5e4ec80b45394lbi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.redinafrica.oneshout.OneSignalNotificationServiceExtension"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85047900870:android:a253aafe28560a0721f5c7",
+        "android_client_info": {
+          "package_name": "com.ebs.oneshout.stg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85047900870-nstu4074jqiom8ke6q9dljfbqqu0prqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHPGfEfp__BalPc1KndiHk5vrsX6WPYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85047900870-nstu4074jqiom8ke6q9dljfbqqu0prqb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "85047900870-2t429m8ddarus8mv5e4ec80b45394lbi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.redinafrica.oneshout.OneSignalNotificationServiceExtension"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85047900870:android:53094418728491c121f5c7",
+        "android_client_info": {
+          "package_name": "com.ebs.shout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85047900870-nstu4074jqiom8ke6q9dljfbqqu0prqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHPGfEfp__BalPc1KndiHk5vrsX6WPYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85047900870-nstu4074jqiom8ke6q9dljfbqqu0prqb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "85047900870-2t429m8ddarus8mv5e4ec80b45394lbi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.redinafrica.oneshout.OneSignalNotificationServiceExtension"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85047900870:android:b23499425bff587e21f5c7",
+        "android_client_info": {
+          "package_name": "com.ebs.shout.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85047900870-nstu4074jqiom8ke6q9dljfbqqu0prqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHPGfEfp__BalPc1KndiHk5vrsX6WPYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85047900870-nstu4074jqiom8ke6q9dljfbqqu0prqb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "85047900870-2t429m8ddarus8mv5e4ec80b45394lbi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.redinafrica.oneshout.OneSignalNotificationServiceExtension"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

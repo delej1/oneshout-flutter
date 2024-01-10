@@ -1,0 +1,32 @@
+{
+    "_id": "888fd7d1-0b64-4766-b121-5996bc5b6b3f",
+    "colName": "Shout",
+    "created": "2023-03-24T09:49:24.220Z",
+    "sortNum": 10000,
+    "folders": [],
+    "requests": [
+        {
+            "_id": "5d3a8552-9ef8-4df1-a700-a3b6d0bfc09c",
+            "colId": "888fd7d1-0b64-4766-b121-5996bc5b6b3f",
+            "containerId": "",
+            "name": "Send Shout",
+            "url": "http://localhost:1400/api/v1/shouts",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-03-24T09:49:24.221Z",
+            "modified": "2023-03-24T09:53:49.734Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"data\": {\n    \"recipients\": \"+2347014206648\",\n    \"type\": \"help\",\n    \"longitude\": 7.898765,\n    \"latitude\": 9.43234\n  }\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        }
+    ]
+}

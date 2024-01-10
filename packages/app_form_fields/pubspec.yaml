@@ -1,0 +1,25 @@
+name: app_form_fields
+description: Special Form DataFields
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.16.0 <3.0.0"
+
+dependencies:
+  app_core:
+    path: "../app_core"
+  cupertino_icons: ^1.0.4
+  flutter:
+    sdk: flutter
+  intl: ^0.18.0
+  money2: ^3.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^3.1.0
+
+flutter:
+  assets:
+    - assets/flags/

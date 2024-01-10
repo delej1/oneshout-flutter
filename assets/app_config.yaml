@@ -1,0 +1,55 @@
+#Settings
+settings:
+  enabled: true
+
+  shout:
+    enabled: true
+    tracking: true
+  # Theme
+  dark_mode:
+    enabled: true
+
+  # Account Settings
+  account:
+    enabled: true
+    user_profile:
+      enabled: true
+      cool: 1
+    language:
+      enabled: true
+    location:
+      enabled: true
+    currency:
+      enabled: true
+    privacy:
+      enabled: true
+    security:
+      enabled: false
+    account_info:
+      enabled: true
+    logout:
+      enabled: true
+    delete_account:
+      enabled: false
+
+  # Notification Settings
+  notification:
+    enabled: false
+    latest_news:
+      enabled: true
+    account_activity:
+      enabled: true
+    newsletter:
+      enabled: true
+    app_updates:
+      enabled: true
+
+  #Feedback Settings
+  feedback:
+    enabled: true
+    #
+    report_bug:
+      enabled: true
+    #
+    send_feedback:
+      enabled: true
