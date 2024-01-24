@@ -1,0 +1,176 @@
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new FileNotFoundException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+def envVariables = [
+    APP_TARGET: project.getProperty('IS_GROUP_TARGET') == true
+            ? '- Corporate'
+            : '',
+    APP_SUFFIX: project.getProperty('IS_GROUP_TARGET') == true
+            ? '.biz'
+            : '',
+    APK_SUFFIX: project.hasProperty('APK_SUFFIX')
+            ? APK_SUFFIX
+            : 'public-',
+]
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
+
+
+android {
+    namespace 'com.ebs.shout'
+    compileSdkVersion 34
+
+    compileOptions {
+        // Flag to enable support for the new language APIs
+        coreLibraryDesugaringEnabled true
+        // Sets Java compatibility to Java 8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId "com.ebs.shout"
+        minSdkVersion 23
+        targetSdkVersion 34
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        multiDexEnabled true
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("oneshout.jks")
+            storePassword "Rejoicing"
+            keyAlias "key"
+            keyPassword "Rejoicing"
+        }
+//        if (System.getenv("ANDROID_KEYSTORE_PATH")) {
+//            release {
+//                storeFile file(System.getenv("ANDROID_KEYSTORE_PATH"))
+//                keyAlias System.getenv("ANDROID_KEYSTORE_ALIAS")
+//                keyPassword System.getenv("ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD")
+//                storePassword System.getenv("ANDROID_KEYSTORE_PASSWORD")
+//            }
+//        } else {
+//            release {
+//                keyAlias keystoreProperties['keyAlias']
+//                keyPassword keystoreProperties['keyPassword']
+//                storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+//                storePassword keystoreProperties['storePassword']
+//            }
+//        }
+    }
+
+    flavorDimensions "default"
+    productFlavors { 
+        production {
+            dimension "default"
+            applicationIdSuffix  envVariables.APP_SUFFIX + ""
+            manifestPlaceholders = [appName: "One Shout " + envVariables.APP_TARGET, googleMapKey:"AIzaSyCRk8ckRhR9AW4NEal-3Q7jzaYN4QlYTdo"]
+        }
+        staging {
+            dimension "default"
+            applicationIdSuffix envVariables.APP_SUFFIX + ".stg"
+            manifestPlaceholders = [appName: "[TEST] One Shout " + envVariables.APP_TARGET, googleMapKey:"AIzaSyCRk8ckRhR9AW4NEal-3Q7jzaYN4QlYTdo"]
+        }
+        development {
+            dimension "default"
+            applicationIdSuffix envVariables.APP_SUFFIX + ""
+            manifestPlaceholders = [appName: "[DEV] One Shout " + envVariables.APP_TARGET, googleMapKey:"AIzaSyC3MttpUGjhhvnLGAW0l6K1FPvcifs-lWA"]
+        }
+    }
+    android.applicationVariants.all { variant ->
+             variant.outputs.all { output ->
+                def flavor = "development"
+                    if (variant.productFlavors.size() > 0)
+                        flavor = variant.productFlavors.get(0)
+        
+                def initials = "dev"
+                    if (flavor.name == "development")
+                         initials = "dev"
+                    else if (flavor.name == "staging")
+                         initials = "test"
+                    else if (flavor.name == "production")
+                         initials = "live"
+
+                // output.outputFileName = "${flutterVersionName}-${initials}-${output.getFilter(com.android.build.OutputFile.ABI)}.apk"
+                output.outputFileName = "oneshout-${flutterVersionName}-${APK_SUFFIX}${initials}.apk"
+       
+            }
+        }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            // proguardFiles getDefaultProguardFile('proguard-android.pro')
+        }
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    buildFeatures {
+        buildConfig = true
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
+     // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:31.2.3')
+
+    // Add the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    // Also add the dependency for the Google Play services library and specify its version
+    implementation 'com.google.android.gms:play-services-auth:20.7.0'
+    implementation 'androidx.window:window:1.2.0'
+    implementation 'androidx.window:window-java:1.2.0'
+}

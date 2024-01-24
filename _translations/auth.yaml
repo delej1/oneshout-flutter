@@ -1,0 +1,28 @@
+## Auth section.
+---
+login: Login
+email: Email Address
+password: Password
+forgot_password: Forgot Password
+create_account: Create Account
+invalid_email: Invalid Email
+invalid_password: Invalid Password
+forgot_password_q: "@:auth.forgot_password?"
+authentication_failure: Authentication Failure
+reset_password: Reset Password
+confirm_password: Confirm Password
+passwords_do_not_match: Passwords do not match
+sign_up: Sign Up
+sign_up_failure: Sign Up Failure
+register: Register
+firstname: First Name
+lastname: Last Name
+verification: Verification
+verification_msg: We sent a code to {{number}}. Please enter it below.
+verification_explanation: This helps us verify users on the platform.
+verification_no_code: Didn't get code?
+change_number: Change Number
+next: Next
+confirm: Confirm
+personal_info: Personal Information
+resend_code: Resend Code

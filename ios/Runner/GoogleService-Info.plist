@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>85047900870-jkgh5cd0tq91qs2225lqa94gitocnmeu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.85047900870-jkgh5cd0tq91qs2225lqa94gitocnmeu</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBmNFrF-aFdF76_-_Um7US0PclbZohOf0s</string>
+	<key>GCM_SENDER_ID</key>
+	<string>85047900870</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.redinafrica.oneshout</string>
+	<key>PROJECT_ID</key>
+	<string>ebs-oneshout</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ebs-oneshout.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:85047900870:ios:b626976af4247a1421f5c7</string>
+</dict>
+</plist>

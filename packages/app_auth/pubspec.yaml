@@ -1,0 +1,42 @@
+name: app_auth
+description: A Flutter App Authentication Package
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.14.0 <3.0.0"
+
+dependencies:
+  # adaptive_theme: ^3.0.0
+  app_core:
+    path: ../app_core
+  authentication_repository:
+    path: packages/authentication_repository
+  bloc: ^8.0.2
+  easy_localization: ^3.0.0
+  flow_builder: ^0.0.6
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.0.1
+  flutter_otp_text_field: ^1.1.1
+  font_awesome_flutter: ^10.1.0
+  form_inputs:
+    path: packages/form_inputs
+  formz: ^0.4.0
+  onesignal_flutter: ^3.5.0
+
+dev_dependencies:
+  bloc_test: ^9.0.0
+  flutter_test:
+    sdk: flutter
+  mocktail: ^0.3.0
+  very_good_analysis: ^3.1.0
+
+dependency_overrides:
+  http: ^0.13.0
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/images/

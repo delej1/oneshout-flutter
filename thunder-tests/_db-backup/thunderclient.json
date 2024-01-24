@@ -1,0 +1,109 @@
+[
+  {
+    "_id": "5d3a8552-9ef8-4df1-a700-a3b6d0bfc09c",
+    "colId": "888fd7d1-0b64-4766-b121-5996bc5b6b3f",
+    "containerId": "",
+    "name": "Send Shout",
+    "url": "http://localhost:1400/api/v1/shouts",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-03-24T09:49:24.221Z",
+    "modified": "2023-03-24T09:53:49.734Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"data\": {\n    \"recipients\": \"+2347014206648\",\n    \"type\": \"help\",\n    \"longitude\": 7.898765,\n    \"latitude\": 9.43234\n  }\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "13d4b544-5884-4d8f-8c16-720ee5dc8e35",
+    "colId": "8ff3611c-3653-4a6e-889a-0af61813fb6c",
+    "containerId": "",
+    "name": "Verify Purchase",
+    "url": "https://sandbox.itunes.apple.com/verifyReceipt",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-03-25T19:00:23.779Z",
+    "modified": "2023-04-01T05:13:31.005Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "text",
+      "raw": "{\n  \"password\":\"23d344b3e2eb406facbb692d06142280\",\n  \"receipt-data\": \"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\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "36ab538b-572b-4928-8b24-ee53d8ab8f05",
+    "colId": "8ff3611c-3653-4a6e-889a-0af61813fb6c",
+    "containerId": "",
+    "name": "Verify Purchase Copy",
+    "url": "http://localhost:1400/api/v1/subscriptions/verify-purchase",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-04-01T05:11:24.610Z",
+    "modified": "2023-04-01T05:11:24.610Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"data\": {\n    \"receipt\": \"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\",\n    \"store\": \"ios\"\n  }\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "7788bf87-43f9-4083-b801-557f263cbc6c",
+    "colId": "4ad5fb2c-7837-4c99-9d80-c0e5dd716bd7",
+    "containerId": "",
+    "name": "Login",
+    "url": "http://localhost:1400/api/auth/login",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-04-27T04:58:07.795Z",
+    "modified": "2023-04-28T04:03:17.354Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"phone\":\"+2347014206648\",\"password\":\"ppp000\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "9d01f6f0-1746-482e-96c6-936f2895ffe1",
+    "colId": "4ad5fb2c-7837-4c99-9d80-c0e5dd716bd7",
+    "containerId": "",
+    "name": "Login Copy",
+    "url": "https://oneshout-api.herokuapp.com/api/auth/login",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-04-28T04:14:45.383Z",
+    "modified": "2023-04-28T04:15:23.406Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"phone\":\"+2347014206648\",\"password\":\"ppp000\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]

@@ -1,0 +1,47 @@
+{
+    "_id": "4ad5fb2c-7837-4c99-9d80-c0e5dd716bd7",
+    "colName": "Auth",
+    "created": "2023-04-27T04:57:55.028Z",
+    "sortNum": 30000,
+    "folders": [],
+    "requests": [
+        {
+            "_id": "7788bf87-43f9-4083-b801-557f263cbc6c",
+            "colId": "4ad5fb2c-7837-4c99-9d80-c0e5dd716bd7",
+            "containerId": "",
+            "name": "Login",
+            "url": "http://localhost:1400/api/auth/login",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-04-27T04:58:07.795Z",
+            "modified": "2023-04-28T04:03:17.354Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"phone\":\"+2347014206648\",\"password\":\"ppp000\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "9d01f6f0-1746-482e-96c6-936f2895ffe1",
+            "colId": "4ad5fb2c-7837-4c99-9d80-c0e5dd716bd7",
+            "containerId": "",
+            "name": "Login Copy",
+            "url": "https://oneshout-api.herokuapp.com/api/auth/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-04-28T04:14:45.383Z",
+            "modified": "2023-04-28T04:15:23.406Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"phone\":\"+2347014206648\",\"password\":\"ppp000\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
