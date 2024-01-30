@@ -128,6 +128,19 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> with UiLogger {
     }
   }
 
+  //............................................................................
+  //bypass function
+  void bypassVerification(){
+    emit(
+      state.copyWith(
+        verificationCodeStatus: VerificationCodeStatus.confirmed,
+        step: 3,
+      ),
+    );
+  }
+  //............................................................................
+
+
   Future<void> sendVerificationCode() async {
     notify.loading();
 

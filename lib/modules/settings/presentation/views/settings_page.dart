@@ -18,6 +18,7 @@ import 'package:oneshout/modules/home/home_routes.dart';
 import 'package:oneshout/modules/settings/settings.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
@@ -82,13 +83,15 @@ class _SettingsPageWidget extends StatelessWidget {
           ],
         ),
         //..................................................................................
-        SettingsGroup(
-          title: 'SUBSCRIPTION',
-          children: [
-            VSpace.sm,
-            buildRestoreSub()
-          ],
-        ),
+        if (const bool.fromEnvironment('IS_GROUP_TARGET'))
+          Container()
+        else
+          SettingsGroup(
+            title: 'SUBSCRIPTION',
+            children: [
+              VSpace.sm,
+              buildRestoreSub()
+            ],),
         //..................................................................................
         SettingsGroup(
           title: 'settings.general'.tr().toUpperCase(),
@@ -103,6 +106,12 @@ class _SettingsPageWidget extends StatelessWidget {
             if (config.enabled<bool>(core.keys.ck_settings_notification)) ...[
               const NotificationPage(),
             ],
+            //..................................................................................
+            if (const bool.fromEnvironment('IS_GROUP_TARGET'))
+              Container()
+            else
+            buildShare(),
+            //..................................................................................
             if (config.enabled<bool>(core.keys.ck_settings_account_logout)) ...[
               buildLogout(context),
             ],
@@ -213,7 +222,28 @@ class _SettingsPageWidget extends StatelessWidget {
         subtitle: '',
         leading: const IconWidget(icon: Icons.logout, color: Colors.blueAccent),
         onTap: () {
-          context.read<AuthBloc>().add(AuthLogoutRequested());
+          showDialog(context: context, builder: (context) => AlertDialog(
+            title: const Text("Logout?", style: TextStyle(color: Colors.black),),
+            content: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Text("Are you sure you want to logout?",)
+            ),
+            actions: [
+              ElevatedButton(
+                onPressed: (){
+                  Navigator.of(context).pop();
+                },
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+                child: const Text('No'),
+              ),
+              ElevatedButton(
+                onPressed: (){context.read<AuthBloc>().add(AuthLogoutRequested());},
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+                //return false when click on "NO"
+                child: const Text('Yes'),
+              ),
+            ],
+          ));
         },
       );
 
@@ -294,12 +324,22 @@ class _SettingsPageWidget extends StatelessWidget {
       try {
         CustomerInfo customerInfo = await Purchases.restorePurchases();
         List activeSubs = customerInfo.activeSubscriptions;
-        // ... check restored purchaserInfo to see if entitlement is now active
-        activeSubs.isEmpty?
-        notify.toast("No active subscriptions"):notify.toast("Sub: ${activeSubs.toString()}");
+
+        if(activeSubs.isEmpty){
+          notify.toast("No active subscriptions");
+        }else{
+          if(activeSubs.first=="sub_1_month"||activeSubs.first=="sub_1_month:sub-1-month"){
+            notify.toast("One month Subscription active");
+          }else if(activeSubs.first=="sub_6_months"||activeSubs.first=="sub_6_months:sub-6-months"){
+            notify.toast("Six months Subscription active");
+          }else{
+            notify.toast("One year Subscription active");
+          }
+        }
       } on PlatformException catch (e) {
         // Error restoring purchases
-        notify.toast(e.toString());
+        notify.toast("Sorry, an error occurred");
+        throw e;
       }
     },
   );
@@ -317,3 +357,10 @@ class _SettingsPageWidget extends StatelessWidget {
   }
 //..................................................................................
 }
+
+Widget buildShare() => SimpleSettingsTile(
+  title: 'Share One Shout',
+  subtitle: 'Share One Shout with emergency contacts',
+  leading: const IconWidget(icon: Icons.share, color: Colors.blueGrey),
+  onTap: () async {Share.share('Get the One Shout mobile app from: https://one-shout.netlify.app/');},
+);

@@ -21,6 +21,7 @@ class PaywallState extends State<Paywall> {
   Offering? offering;
 
   bool _isLoading = false;
+  bool _purchaseLoading = false;
 
   @override
   void initState() {
@@ -120,13 +121,14 @@ class PaywallState extends State<Paywall> {
       body: SingleChildScrollView(
         child: SafeArea(
           minimum: EdgeInsets.all(Insets.xl),
-          child: Wrap(
+          child: _purchaseLoading?Center(child: CircularProgressIndicator()):Wrap(
             children: <Widget>[
               VSpace.lg,
               if (_isLoading)
-                const CircularProgressIndicator()
+                Center(child: Center(child: const CircularProgressIndicator()))
               else if (offerings == null || offerings!.current == null)
-                const Text('Could not load Offerings!')
+                //const Text('Could not load Offerings!')
+                Center(child: Center(child: const CircularProgressIndicator()))
               else
                 ListView.separated(
                   itemCount: offering!.availablePackages.length,
@@ -135,6 +137,7 @@ class PaywallState extends State<Paywall> {
                     return Card(
                       child: ListTile(
                         onTap: () async {
+                          setState(() {_purchaseLoading = true;});
                           final nv = Navigator.of(context);
                           try {
                             final customerInfo =
@@ -144,6 +147,7 @@ class PaywallState extends State<Paywall> {
                             iapAppData.entitlementIsActive = customerInfo
                                 .entitlements.all[entitlementID]!.isActive;
                           } catch (e) {
+                            setState(() {_purchaseLoading = false;});
                             print(e);
                           }
 

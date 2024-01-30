@@ -262,7 +262,6 @@ class _HomeViewState extends State<HomeView> with UiLogger {
                     BlocBuilder<HomeCubit, HomeState>(
                       builder: (context, state) {
                         if (state is ReadyState) {
-                          //add loader code here after boolean check.....................................
                           return Column(
                             children: [
                               const HelpWidget(),
@@ -387,27 +386,53 @@ class HelpWidget extends StatefulWidget {
 }
 
 class _HelpWidgetState extends State<HelpWidget> {
-  bool _isLoading = false;
-  bool _hasPremium = false;
-  bool _revenueCatInitiated = false;
-  @override
-  void initState() {
-    super.initState();
-    if (!isGroupTarget) {
-      perfomMagic();
-    } else {}
-  }
+  // bool _isLoading = false;
+  bool _loadingPurchase = false;
+  // bool _hasPremium = false;
+  // bool _revenueCatInitiated = false;
+
+  //.............................................................................
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   if (!isGroupTarget) {
+  //     perfomMagic();
+  //   } else {}
+  // }
+  // ............................................................................
 
   /*
     We should check if we can magically change the weather 
     (subscription active) and if not, display the paywall.
   */
-  Future<void> perfomMagic() async {
-    setState(() {
-      _isLoading = true;
-      _revenueCatInitiated = false;
-    });
 
+  Future<void> restorePurchase() async{
+    try {
+      setState(() {
+        _loadingPurchase = true;
+      });
+      CustomerInfo customerInfo = await Purchases.restorePurchases();
+      List activeSubs = customerInfo.activeSubscriptions;
+      // ... check restored purchaserInfo to see if entitlement is now active
+      activeSubs.isEmpty?
+      debugPrint("No active subscriptions"):debugPrint("Sub: ${activeSubs.toString()}");
+    } on PlatformException catch (e) {
+      // Error restoring purchases
+      notify.toast("Sorry, an error occurred");
+      setState(() {
+        _loadingPurchase = false;
+      });
+      throw e;
+    }
+  }
+
+  Future<void> perfomMagic() async {
+    // setState(() {
+    //   // _isLoading = true;
+    //   // _revenueCatInitiated = false;
+    //   _loadingPurchase = false;
+    // });
+    final contactsCubit = BlocProvider.of<ContactsCubit>(context);
     final customerInfo = await Purchases.getCustomerInfo();
 
     if (customerInfo.entitlements.all[entitlementID] != null &&
@@ -416,22 +441,28 @@ class _HelpWidgetState extends State<HelpWidget> {
       // notify.toast(
       //   'Entitlement: ${customerInfo.entitlements.all[entitlementID]!.identifier}',
       // );
-
       setState(() {
-        _isLoading = false;
-        _hasPremium = true;
-        _revenueCatInitiated = true;
-        //print("HAS IN-APP SUBSCRIPTION");...............................................
-        // final user = BlocProvider.of<AuthBloc>(ctx).state.user;
-        // print(user.hasValidSubscription.toString());
+        _loadingPurchase = false;
+        // _isLoading = false;
+        // _hasPremium = true;
+        // _revenueCatInitiated = true;
       });
+      //context.go('/$contactsRoute');
+      try {
+        final c = await contactsCubit.loadContacts(enabled: true);
+        if (c.isEmpty) {
+          context.go('/$contactsRoute');
+        } else {
+          context.go('/$shoutRoute');
+        }
+      } catch (e) {
+        BlocProvider.of<HomeCubit>(context).logError(e);
+      }
     } else {
       setState(() {
-        _hasPremium = false;
-        _revenueCatInitiated = true;
-        // print("NO IN-APP SUBSCRIPTION");...............................................
-        // final user = BlocProvider.of<AuthBloc>(ctx).state.user;
-        // print(user.hasValidSubscription.toString());
+        _loadingPurchase = false;
+        // _hasPremium = false;
+        // _revenueCatInitiated = true;
       });
       context.go('/$iapRoute');
     }
@@ -439,19 +470,16 @@ class _HelpWidgetState extends State<HelpWidget> {
 
   @override
   Widget build(BuildContext context) {
-    //final user = BlocProvider.of<AuthBloc>(ctx).state.user;.....................................
     final width = MediaQuery.of(context).size.width - 64;
 
     return Center(
       child: ElevatedButton(
-        //major edit here on button press........................................................
-        //onPressed: () => user.hasValidSubscription!?onHelp(context):context.go('/$iapRoute'),
         onPressed: () => onHelp(context),
         style: ElevatedButton.styleFrom(
           fixedSize: Size(width, width),
           maximumSize: const Size(300, 150),
         ),
-        child: Text(
+        child: _loadingPurchase?Center(child: CircularProgressIndicator(backgroundColor: Colors.white,)):Text(
           '${'help'.tr().toUpperCase()}!',
           style: TextStyle(
             fontSize: width / 16,
@@ -466,38 +494,60 @@ class _HelpWidgetState extends State<HelpWidget> {
   Future<void> onHelp(BuildContext ctx) async {
     final contactsCubit = BlocProvider.of<ContactsCubit>(ctx);
     final user = BlocProvider.of<AuthBloc>(ctx).state.user;
+
+    if (isGroupTarget){
+      if (!user.hasValidSubscription!) {
+        context.go('/subscription');
+        return;
+      }
+      try {
+        final c = await contactsCubit.loadContacts(enabled: true);
+        if (c.isEmpty) {
+          context.go('/$contactsRoute');
+        } else {
+          context.go('/$shoutRoute');
+        }
+      } catch (e) {
+        BlocProvider.of<HomeCubit>(context).logError(e);
+      }
+      return;
+    }
     //......................................................
     // final location = await MyLocatorApi().getLocation();
     // print(location?.toJson());
     //return;
-    if (!_hasPremium && _revenueCatInitiated) {
-    await perfomMagic();
-    ctx.go('/$iapRoute');
-    return;
-    }
 
-    await perfomMagic();
-    ctx.go('/$contactsRoute');
+    // if (!_hasPremium && _revenueCatInitiated) {
+    // await restorePurchase().then((value) => perfomMagic());
+    // ctx.go('/$iapRoute');
+    // return;
+    // }
+    await restorePurchase().then((value) => perfomMagic());
+    //ctx.go('/$contactsRoute');
     //..................................................
-    if (isGroupTarget && !user.hasValidSubscription!) {
-      ctx.go('/subscription');
-      return;
-    }
-    try {
-      final c = await contactsCubit.loadContacts(enabled: true);
-      if (c.isEmpty) {
-        ctx.go('/$contactsRoute');
-      } else {
-        ctx.go('/$shoutRoute');
-      }
-    } catch (e) {
-      BlocProvider.of<HomeCubit>(ctx).logError(e);
-    }
+    // try {
+    //   final c = await contactsCubit.loadContacts(enabled: true);
+    //   if (c.isEmpty) {
+    //     ctx.go('/$contactsRoute');
+    //   } else {
+    //     ctx.go('/$shoutRoute');
+    //   }
+    // } catch (e) {
+    //   BlocProvider.of<HomeCubit>(ctx).logError(e);
+    // }
   }
 }
 
-class LocateWidget extends StatelessWidget {
+class LocateWidget extends StatefulWidget {
   const LocateWidget({super.key});
+
+  @override
+  State<LocateWidget> createState() => _LocateWidgetState();
+}
+
+class _LocateWidgetState extends State<LocateWidget> {
+
+  bool _loadingPurchase = false;
 
   @override
   Widget build(BuildContext context) {
@@ -507,18 +557,22 @@ class LocateWidget extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {
           final user = BlocProvider.of<AuthBloc>(ctx).state.user;
-          if (isGroupTarget && !user.hasValidSubscription!) {
-            context.go('/subscription');
+          if(isGroupTarget){
+            if (!user.hasValidSubscription!) {
+              context.go('/subscription');
+              return;
+            }
+            context.push('/$locatorRoute');
             return;
           }
-          context.push('/$locatorRoute');
+          restorePurchase().then((value) => perfomMagic());
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.orange,
           fixedSize: Size(width, width),
           maximumSize: const Size(300, 150),
         ),
-        child: Text(
+        child: _loadingPurchase?Center(child: CircularProgressIndicator(backgroundColor: Colors.white,)):Text(
           'locate'.tr().toUpperCase(),
           style: TextStyle(
             fontSize: width / 16,
@@ -528,6 +582,42 @@ class LocateWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> restorePurchase() async{
+    setState(() {
+      _loadingPurchase = true;
+    });
+    try {
+      CustomerInfo customerInfo = await Purchases.restorePurchases();
+      List activeSubs = customerInfo.activeSubscriptions;
+      // ... check restored purchaserInfo to see if entitlement is now active
+      activeSubs.isEmpty?
+      debugPrint("No active subscriptions"):debugPrint("Sub: ${activeSubs.toString()}");
+    } on PlatformException catch (e) {
+      // Error restoring purchases
+      setState(() {
+        _loadingPurchase = false;
+      });
+      notify.toast("Sorry, an error occurred");
+      throw e;
+    }
+  }
+
+  Future<void> perfomMagic() async {
+    final customerInfo = await Purchases.getCustomerInfo();
+    if (customerInfo.entitlements.all[entitlementID] != null &&
+        customerInfo.entitlements.all[entitlementID]!.isActive == true) {
+      setState(() {
+        _loadingPurchase = false;
+      });
+      context.go('/$locatorRoute');
+    }else{
+      setState(() {
+        _loadingPurchase = false;
+      });
+      context.go('/$iapRoute');
+    }
   }
 }
 

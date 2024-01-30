@@ -175,15 +175,15 @@ class SignUpCubit extends Cubit<SignUpState> with UiLogger {
         );
 
         //major edit................................................................
-        // emit(
-        //   state.copyWith(
-        //     verificationCodeStatus: VerificationCodeStatus.confirmed,
-        //     step: 3,
-        //   ),
-        // );
+        emit(
+          state.copyWith(
+            verificationCodeStatus: VerificationCodeStatus.confirmed,
+            step: 3,
+          ),
+        );
         //major edit................................................................
 
-        emit(state.copyWith(step: 2));
+        //emit(state.copyWith(step: 2));
       } else {
         final data = jsonDecode(res.body) as Map<String, dynamic>;
         final err = data['error'] as Map<String, dynamic>;

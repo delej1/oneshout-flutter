@@ -163,7 +163,7 @@ Future<void> showNotification(RemoteMessage message) async {
     if (Platform.isAndroid) {
       Future.delayed(const Duration(milliseconds: 4300), () async {
         final player = AudioPlayer();
-        await player.play(AssetSource('sounds/alarm.mp3'));
+        await player.play(AssetSource('sounds/safe.mp3'));
       });
     }
   }
@@ -257,7 +257,7 @@ Future<void> initNotifications() async {
           'com.ebs.shout.channel',
           'Emergency Notifications',
           importance: Importance.max,
-          sound: RawResourceAndroidNotificationSound('alarm'),
+          //sound: RawResourceAndroidNotificationSound('alarm'),
         ),
       );
 

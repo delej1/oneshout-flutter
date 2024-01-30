@@ -1,6 +1,6 @@
 name: oneshout
 description: One Shout
-version: 2.0.0+27
+version: 2.0.3+30
 publish_to: none
 
 environment:
@@ -62,6 +62,7 @@ dependencies:
   phone_numbers_parser: ^7.0.2
   # readsms: ^0.0.2+2
   purchases_flutter: ^6.6.0
+  share_plus: ^7.2.1
   shared_preferences: ^2.0.20
   socket_io_client: ^2.0.1
   telephony:

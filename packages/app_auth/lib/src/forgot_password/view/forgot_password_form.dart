@@ -313,7 +313,8 @@ class _ResetButton extends StatelessWidget {
                 onPressed: state.status.isValidated
                     ? () => context
                         .read<ForgotPasswordCubit>()
-                        .sendVerificationCode()
+                        .bypassVerification()
+                        //.sendVerificationCode()
                     : () {},
               );
       },
